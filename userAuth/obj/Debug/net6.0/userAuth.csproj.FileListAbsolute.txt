@@ -1,0 +1,128 @@
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\appsettings.Development.json
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\appsettings.json
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\userAuth.exe
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\userAuth.deps.json
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\userAuth.runtimeconfig.json
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\userAuth.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\userAuth.pdb
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.csproj.AssemblyReference.cache
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.AssemblyInfoInputs.cache
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.AssemblyInfo.cs
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.csproj.CoreCompileInputs.cache
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.MvcApplicationPartsAssemblyInfo.cs
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.MvcApplicationPartsAssemblyInfo.cache
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\staticwebassets.build.json
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\staticwebassets.development.json
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\scopedcss\bundle\userAuth.styles.css
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.csproj.CopyComplete
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.dll
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\refint\userAuth.dll
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.pdb
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\userAuth.genruntimeconfig.cache
+D:\Dotnet\userAuth\userAuth\obj\Debug\net6.0\ref\userAuth.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Humanizer.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Dotnet\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\appsettings.Development.json
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\appsettings.json
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\userAuth.exe
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\userAuth.deps.json
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\userAuth.runtimeconfig.json
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\userAuth.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\userAuth.pdb
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Humanizer.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.OpenApi.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.Drawing.Common.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.Runtime.Caching.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.Security.Permissions.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\System.Windows.Extensions.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\Semester 7\userAuth\userAuth\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.csproj.AssemblyReference.cache
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.GeneratedMSBuildEditorConfig.editorconfig
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.AssemblyInfoInputs.cache
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.AssemblyInfo.cs
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.csproj.CoreCompileInputs.cache
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.MvcApplicationPartsAssemblyInfo.cs
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.MvcApplicationPartsAssemblyInfo.cache
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\staticwebassets.build.json
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\staticwebassets.development.json
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\scopedcss\bundle\userAuth.styles.css
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.csproj.CopyComplete
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.dll
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\refint\userAuth.dll
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.pdb
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\userAuth.genruntimeconfig.cache
+F:\Semester 7\userAuth\userAuth\obj\Debug\net6.0\ref\userAuth.dll
