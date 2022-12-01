@@ -2,7 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
+using System.Text;
 using userAuth.Enums;
 
 using userAuth.Model;
@@ -15,12 +22,19 @@ namespace userAuth.Controllers
     public class UserController : ControllerBase
     {
         private readonly IConfiguration _config;
+        private readonly jwtService _setting;
         public readonly UserContext _context;
-        public UserController(IConfiguration config, UserContext context)
+        private readonly IRefreshTokenGenerator tokenGenerator;
+        public UserController(IConfiguration config, UserContext context, IRefreshTokenGenerator _refreshToken , jwtService setting)
         {
             _config = config;
             _context = context;
+            _setting = setting;
+            tokenGenerator = _refreshToken;
         }
+
+       
+
         [HttpGet("RegisterRole")]
         public async Task<IActionResult> GetRegisterRole()
         {
@@ -50,6 +64,7 @@ namespace userAuth.Controllers
                     Father_Name = user.Father_Name,
                     Gender = user.Gender,
                     Student_Name = user.Student_Name,
+                    Role = user.Role,
                     //copy other properties
 
                     Password = user.Password,
@@ -102,34 +117,80 @@ namespace userAuth.Controllers
             await _context.SaveChangesAsync();
             return Ok(await _context.Registers.ToListAsync());
         }      
-
+        
 
         [AllowAnonymous]
         [HttpPost("loginUser")]       
         public async Task<IActionResult> Login(Login user)
         {
+            
             var userExists = await _context.Registers.Where(u => u.Email == user.Email && u.Password == user.Password && u.IsApproved).FirstOrDefaultAsync();
             if (userExists != null)
             {
                 var userRole = _context.UserRoles.FirstOrDefault(p => p.UserId == userExists.UserId);
                 //var userAccept = _context.Registers.FirstOrDefault(p => p. == userExists.UserId);
 
-                return Ok(new jwtService(_config).GenerateToken(
+                //var tokenhandler = new JwtSecurityTokenHandler();
+                var finaltoken = (new jwtService(_config,tokenGenerator).GenerateToken(
                     userExists.UserId.ToString(),
                     userExists.Student_Name,
                     userExists.Email,
+                    userExists.Role,
 
                      userRole != null ? userRole.RoleId : null,
                      userExists.IsApproved
+                     
+                    ));              
+               
 
-                    )
-                   );
+                return Ok(finaltoken);
 
             }
 
             return NotFound();
 
         }
+        [AllowAnonymous]
+        [HttpPost("Refresh")]
+        public IActionResult Refresh([FromBody] TokenResponse token)
+        {
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var securityToken = (JwtSecurityToken)tokenHandler.ReadToken(token.JWTToken);
+            var principal = tokenHandler.ValidateToken(token.JWTToken, new TokenValidationParameters
+             {
+                   ValidateIssuer = false,
+         ValidateAudience = false,
+         ValidateLifetime = true,
+         ValidateIssuerSigningKey = true,
+        // ValidIssuer = Configuration["jwtConfig:Issuer"],
+         ClockSkew = TimeSpan.Zero,
+         //ValidAudience = builder.Configuration["JWT:Audience"],
+         IssuerSigningKey = new SymmetricSecurityKey(key)
+             }, out securityToken);
+
+            var Role = securityToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+
+            var _token = securityToken;
+            
+            if (_token == null && _token.Header.Alg.Equals(SecurityAlgorithms.HmacSha256))
+            {
+                return Unauthorized();
+            }
+
+
+             var UserName = securityToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+            var _reftable = _context.tblRefreshTokens.FirstOrDefault(o => o.UserId == UserName && o.RefreshToken == token.RefreshToken);
+            if(_reftable == null)
+            {
+                return Unauthorized();
+            }
+            _context.tblRefreshTokens.Update(_reftable);
+            _context.SaveChanges();
+            return Ok();
+        }
+
+
 
         [AllowAnonymous]
         [HttpPost("studentAccept/{Id}")]
@@ -163,11 +224,6 @@ namespace userAuth.Controllers
             }
         }
     }
-
-
-
-
-
 }
 
 

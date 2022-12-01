@@ -14,5 +14,7 @@ namespace userAuth.Model
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<UserRole> UserRoles { get; set; }
+
+        public DbSet<TblRefreshToken> tblRefreshTokens { get; set; }
     }
 }

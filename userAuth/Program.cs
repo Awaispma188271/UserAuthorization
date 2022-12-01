@@ -5,8 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
 using userAuth.Model;
-using Microsoft.AspNetCore.Identity;
-using userAuth.Controllers;
+
+using userAuth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +24,8 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddControllers();
 builder.Services.AddDbContext<UserContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("UserConnectionStrings")));
-
+var _dbcontext = builder.Services.BuildServiceProvider().GetService<UserContext>();
+builder.Services.AddSingleton<IRefreshTokenGenerator>(provider => new RefreshTokenGenerator(_dbcontext));
 
 // ADD JWT Authentication
 builder.Services.AddAuthentication(x =>
