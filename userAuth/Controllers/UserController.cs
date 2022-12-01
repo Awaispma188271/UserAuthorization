@@ -160,27 +160,27 @@ namespace userAuth.Controllers
             var principal = tokenHandler.ValidateToken(token.JWTToken, new TokenValidationParameters
              {
                    ValidateIssuer = false,
-         ValidateAudience = false,
-         ValidateLifetime = true,
-         ValidateIssuerSigningKey = true,
-        // ValidIssuer = Configuration["jwtConfig:Issuer"],
-         ClockSkew = TimeSpan.Zero,
-         //ValidAudience = builder.Configuration["JWT:Audience"],
-         IssuerSigningKey = new SymmetricSecurityKey(key)
+                 ValidateAudience = false,
+        
+                 ValidateIssuerSigningKey = true,
+        
+                 ClockSkew = TimeSpan.Zero,
+         
+                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_setting.SecretKey))
              }, out securityToken);
 
-            var Role = securityToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+           
 
             var _token = securityToken;
             
-            if (_token == null && _token.Header.Alg.Equals(SecurityAlgorithms.HmacSha256))
+            if (_token == null &&  _token.Header.Alg.Equals(SecurityAlgorithms.HmacSha256))
             {
                 return Unauthorized();
             }
 
 
-             var UserName = securityToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
-            var _reftable = _context.tblRefreshTokens.FirstOrDefault(o => o.UserId == UserName && o.RefreshToken == token.RefreshToken);
+            var role = securityToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+            var _reftable = _context.tblRefreshTokens.FirstOrDefault(o => o.UserId == role && o.RefreshToken == token.RefreshToken);
             if(_reftable == null)
             {
                 return Unauthorized();
