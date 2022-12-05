@@ -22,14 +22,14 @@ namespace userAuth.Controllers
     public class UserController : ControllerBase
     {
         private readonly IConfiguration _config;
-        private readonly jwtService _setting;
+        private readonly jwtService setting;
         public readonly UserContext _context;
         private readonly IRefreshTokenGenerator tokenGenerator;
-        public UserController(IConfiguration config, UserContext context, IRefreshTokenGenerator _refreshToken , jwtService setting)
+        public UserController(IConfiguration config, UserContext context, IRefreshTokenGenerator _refreshToken)
         {
             _config = config;
             _context = context;
-            _setting = setting;
+            
             tokenGenerator = _refreshToken;
         }
 
@@ -150,44 +150,49 @@ namespace userAuth.Controllers
             return NotFound();
 
         }
+        [NonAction]
+        public TokenResponse Authenticate(string Role, Claim[] claims)
+        {
+            TokenResponse tokenResponse = new TokenResponse();
+            var tokenkey = Encoding.UTF8.GetBytes(_config["jwtConfig:Key"]);
+            var tokenhandler = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddSeconds(15),
+                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(tokenkey), SecurityAlgorithms.HmacSha256)
+
+                );
+            tokenResponse.JWTToken = new JwtSecurityTokenHandler().WriteToken(tokenhandler);
+            tokenResponse.RefreshToken = tokenGenerator.GenerateToken(Role);
+
+            return tokenResponse;
+        }
+
         [AllowAnonymous]
         [HttpPost("Refresh")]
         public IActionResult Refresh([FromBody] TokenResponse token)
         {
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var securityToken = (JwtSecurityToken)tokenHandler.ReadToken(token.JWTToken);
-            var principal = tokenHandler.ValidateToken(token.JWTToken, new TokenValidationParameters
-             {
-                   ValidateIssuer = false,
-                 ValidateAudience = false,
-        
-                 ValidateIssuerSigningKey = true,
-        
-                 ClockSkew = TimeSpan.Zero,
-         
-                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_setting.SecretKey))
-             }, out securityToken);
+            //var key = Encoding.UTF8.GetBytes("jwtConfig:Key");
+             var securityToken = (JwtSecurityToken)tokenHandler.ReadToken(token.JWTToken);
+            //SecurityToken securityToken;
 
+            var Role = securityToken.Claims.FirstOrDefault(c => c.Type == "Role")?.Value;
+
+
+           // var _token = securityToken as JwtSecurityToken;
+            
            
 
-            var _token = securityToken;
-            
-            if (_token == null &&  _token.Header.Alg.Equals(SecurityAlgorithms.HmacSha256))
-            {
-                return Unauthorized();
-            }
 
-
-            var role = securityToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
-            var _reftable = _context.tblRefreshTokens.FirstOrDefault(o => o.UserId == role && o.RefreshToken == token.RefreshToken);
+            //var Role = principal.Identity.Name;
+            var _reftable = _context.tblRefreshTokens.FirstOrDefault(o => o.UserId == Role ||  o.RefreshToken == token.RefreshToken);
             if(_reftable == null)
             {
                 return Unauthorized();
             }
-            _context.tblRefreshTokens.Update(_reftable);
-            _context.SaveChanges();
-            return Ok();
+            TokenResponse _result = Authenticate(Role, securityToken.Claims.ToArray());
+            return Ok(_result);
         }
 
 

@@ -9,7 +9,7 @@ namespace userAuth.Model
     public class jwtService
     {
         public string SecretKey { get; set; }
-        public long TokenDuration { get; set; }
+       // public long TokenDuration { get; set; }
 
         private readonly IConfiguration _config;
         private readonly IRefreshTokenGenerator tokenGenerator;
@@ -20,7 +20,7 @@ namespace userAuth.Model
 
             this.SecretKey = config.GetSection("jwtConfig").GetSection("Key").Value;
           
-            this.TokenDuration = int.Parse(config.GetSection("jwtConfig").GetSection("Duration").Value);
+           // this.TokenDuration = int.Parse(config.GetSection("jwtConfig").GetSection("Duration").Value);
         }
         public TokenResponse GenerateToken(string id,string UserName,string Email,string Role, int? roleId, bool IsAppoved)
            
@@ -41,7 +41,7 @@ namespace userAuth.Model
                 issuer : "localhost",
                 audience: "localhost",
                 claims: payLoad,
-                expires: DateTime.Now.AddMinutes(TokenDuration),
+                expires: DateTime.Now.AddMinutes(60),
 
                 signingCredentials: signature
 

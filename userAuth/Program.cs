@@ -59,16 +59,18 @@ builder.Services.AddAuthentication(x =>
     };
     var key = Encoding.UTF8.GetBytes(builder.Configuration["jwtConfig:Key"]);
     o.SaveToken = true;
+    
+
     o.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = false,
         ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["jwtConfig:Issuer"],
+        ValidIssuer = builder.Configuration["jwtConfig:issuer"],
         ClockSkew = TimeSpan.Zero,
-        //ValidAudience = builder.Configuration["JWT:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        ValidAudience = builder.Configuration["jwtConfig:audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtConfig:Key"]))
     };
 });
 builder.Services.AddAuthorization(auth =>
