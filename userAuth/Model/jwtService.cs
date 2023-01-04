@@ -41,12 +41,12 @@ namespace userAuth.Model
                 issuer : "localhost",
                 audience: "localhost",
                 claims: payLoad,
-                expires: DateTime.Now.AddMinutes(60),
-
+                expires: DateTime.Now.AddMonths(15),
                 signingCredentials: signature
 
 
                 );
+
              tokenResponse.JWTToken= new JwtSecurityTokenHandler().WriteToken(jwtToken);
             tokenResponse.RefreshToken = tokenGenerator.GenerateToken(Role);
 

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -49,13 +51,13 @@ namespace userAuth.Controllers
             var response = new SurveyResponse();
             try
             {
-                var userExists = await _context.Registers.Where(u => u.Email == user.Email).FirstOrDefaultAsync();
+                var userExists = await _context.Registers.Where(u => u.PersonalEmail == user.PersonalEmail).FirstOrDefaultAsync();
                 if (userExists != null)
                     return Ok("AlreadyExist");
 
                 var dbUser = new Model.RegisterUser()
                 {
-                    Email = user.Email,
+                    PersonalEmail = user.PersonalEmail,
                     CNIC = user.CNIC,
                     Contact_1 = user.Contact_1,
                     Contact_2 = user.Contact_2,
@@ -64,12 +66,21 @@ namespace userAuth.Controllers
                     Father_Name = user.Father_Name,
                     Gender = user.Gender,
                     Student_Name = user.Student_Name,
-                    Role = user.Role,
+                   
+                   // Role = user.Role,
                     //copy other properties
 
                     Password = user.Password,
 
                 };
+                if (user.IsStudent)
+                {
+                    dbUser.Role = "Student";
+                }
+                else
+                {
+                    dbUser.Role = "Employer";
+                }
                 await _context.Registers.AddAsync(dbUser);
                 int countOfChanges = await _context.SaveChangesAsync();
 
@@ -84,12 +95,14 @@ namespace userAuth.Controllers
                         int stuentRoleId = (int)UserRoles.Student;
                         await _context.UserRoles.AddAsync(new UserRole()
                         {
+                            
                             UserId = userId,
                             RoleId = stuentRoleId
                         });
                     }
                     else
                     {
+                        var updateUser = new Model.RegisterUser();
                         await _context.UserRoles.AddAsync(new UserRole()
                         {
                             UserId = userId,
@@ -123,26 +136,31 @@ namespace userAuth.Controllers
         [HttpPost("loginUser")]       
         public async Task<IActionResult> Login(Login user)
         {
-            
-            var userExists = await _context.Registers.Where(u => u.Email == user.Email && u.Password == user.Password && u.IsApproved).FirstOrDefaultAsync();
+            CookieOptions cookieOptions = new CookieOptions()
+            {
+               
+            Expires = DateTimeOffset.UtcNow.AddDays(1),
+            IsEssential = true, 
+            HttpOnly = false,
+            Secure = false,
+        };
+            var userExists = await _context.Registers.Where(u => u.PersonalEmail == user.Email && u.Password == user.Password && u.IsApproved).FirstOrDefaultAsync();
             if (userExists != null)
             {
-                var userRole = _context.UserRoles.FirstOrDefault(p => p.UserId == userExists.UserId);
-                //var userAccept = _context.Registers.FirstOrDefault(p => p. == userExists.UserId);
-
-                //var tokenhandler = new JwtSecurityTokenHandler();
+                var userRole = _context.UserRoles.FirstOrDefault(p => p.UserId == userExists.UserId);                
                 var finaltoken = (new jwtService(_config,tokenGenerator).GenerateToken(
                     userExists.UserId.ToString(),
                     userExists.Student_Name,
-                    userExists.Email,
+                    userExists.PersonalEmail,
                     userExists.Role,
-
                      userRole != null ? userRole.RoleId : null,
-                     userExists.IsApproved
-                     
-                    ));              
-               
+                     userExists.IsApproved                     
+                    ));
 
+                //var response = new HttpResponseMessage(HttpStatusCode.OK);
+                
+
+                HttpContext.Response.Cookies.Append("AccessToken", finaltoken.ToString(), cookieOptions);
                 return Ok(finaltoken);
 
             }
@@ -225,6 +243,23 @@ namespace userAuth.Controllers
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+        [AllowAnonymous]
+        [HttpDelete("studentDelete/{Id}")]
+
+        public async Task<IActionResult> studentDelete([FromRoute] int Id)
+        {
+            try
+            {
+                var newUser1 = await _context.Registers.FindAsync(Id);
+                 _context.Registers.Remove(newUser1);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
